@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Message } from '@angular-nest-proxy/api-interfaces';
 
@@ -7,7 +7,11 @@ import { Message } from '@angular-nest-proxy/api-interfaces';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
+export class AppComponent implements OnInit {
+  hello$ = this.http.get<string>('http://localhost:3333?target=192.168.0.179');
   constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+      this.hello$.subscribe(val => console.log(val));
+  }
 }
