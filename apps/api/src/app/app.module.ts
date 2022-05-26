@@ -2,7 +2,7 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ProxyMiddleware } from './proxy-middleware';
+// import { ProxyMiddleware } from './proxy-middleware';
 
 @Module({
   imports: [],
